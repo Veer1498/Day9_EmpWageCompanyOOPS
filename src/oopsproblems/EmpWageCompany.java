@@ -6,34 +6,49 @@ public class EmpWageCompany {
 	public static final int employeePartTime = 2;
 	public static final int WagePerHour = 20;
 	public static final int NumberOfWorkingDays =20;
+	public static final int TotalHoursinMonth = 100;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stu
 		System.out.println("Welcome to Employee Wage Computation Program");
 	
 		int numberOfHours = 0;
-		int empWagePerDay = 0;
-		int i, totalEmployeeWage =0;
-		for (i=0; i<NumberOfWorkingDays; i++) {
+		int empWagePerDay = 0,nHours=0;
+		int totalWorkDays = 0 , totalWorkHours = 0;
+		int totalEmployeeWage =0;
+		while (totalWorkHours< TotalHoursinMonth && totalWorkDays < NumberOfWorkingDays) {
+		//totalWorkDays++;
 		int isPresent = (int) Math.floor(Math.random()*10) %3;
 		switch (isPresent) {
 			case employeePresent :
 				numberOfHours =8;
-				System.out.println("Employee is Present");
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is Prsent");
+				System.out.println("Employee earn = " + numberOfHours * WagePerHour);
+				totalWorkDays++;
+				nHours+=numberOfHours;
 				break;
 			case employeePartTime :
 				numberOfHours =4;
-				System.out.println("Employee is Part Time ");
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is Part Time Present");
+				System.out.println("Employee earn with PartTime= " + numberOfHours* WagePerHour);
+				totalWorkDays++;
+				nHours+=numberOfHours;
+				
 				break;
+
 			default :
 				numberOfHours = 0;
-				System.out.println("Employee is Absent");
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is not Present");
+				System.out.println("Employee earn = 0");
 				break;
+				}
 		}
-		empWagePerDay = numberOfHours * WagePerHour;
-		totalEmployeeWage= totalEmployeeWage + empWagePerDay;
-		System.out.println("Employee Wage daily =" + empWagePerDay);
-		}	
+		System.out.println("days  = " + totalWorkDays + " No. of Hours = " +nHours);
+		System.out.println(	"Employee Monthly Earn = " + ((numberOfHours) * WagePerHour) * NumberOfWorkingDays);
+		totalEmployeeWage= totalWorkHours * WagePerHour;
 		System.out.println("Total Employee Wage is "+ totalEmployeeWage);
 	}
 
