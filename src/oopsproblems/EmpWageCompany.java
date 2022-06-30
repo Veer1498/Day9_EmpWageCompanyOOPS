@@ -19,33 +19,25 @@ public class EmpWageCompany {
 	public static final int employeePresent = 1;
 	public static final int employeePartTime = 2;
 	
-	public static final int WagePerHour = 20;
+	//public final String Company;
+	public final int WagePerHour = 20;
+	public final int NumberOfWorkingDays = 2;
+	public final int TotalHoursinMonth = 10;;
 	
-	public static final int NumberOfWorkingDays =20;
-	public static final int TotalHoursinMonth = 100;
-	
-	 static int  numberOfHours;
-	 static int empWagePerDay;
-	 static int nHours;
-     static int totalWorkDays;
-     static int totalWorkHours;
-	 static int totalEmployeeWage;
-	 
-	//Welcome Message
-	 public static void  Welcome() {
-		System.out.println("Welcome to Employee Wage Computation program");
-		}
-	 //Variables
-	public static void Variables () {
-		 numberOfHours = 0;
-		 empWagePerDay = 0;
-		 nHours=0;
-	     totalWorkDays = 0;
-	     totalWorkHours = 0;
-		 totalEmployeeWage =0;
-	 	}
-	// Method
-	 public static void Method() {
+	public static int EmpWageCompany(String Company, int WagePerHour, int NumberOfWorkingDays, int TotalHoursinMonth) {
+		/*
+		this.Company = Company;
+		this.WagePerHour = WagePerHour;
+		this.NumberOfWorkingDays = NumberOfWorkingDays;
+		this.TotalHoursinMonth = TotalHoursinMonth;
+		*/
+		 int numberOfHours = 0;
+		 int empWagePerDay = 0;
+		 int nHours=0;
+	     int totalWorkDays = 0;
+	     int totalWorkHours = 0;
+		 int totalEmployeeWage =0;
+		 
 		while (totalWorkHours< TotalHoursinMonth && totalWorkDays <= NumberOfWorkingDays) {
 			int isPresent = (int) Math.floor(Math.random()*10) %3;
 			switch (isPresent) {
@@ -65,13 +57,21 @@ public class EmpWageCompany {
 				default :
 					numberOfHours = 0;
 					totalWorkHours =totalWorkHours + numberOfHours;
+					totalWorkDays++;
+					nHours+=numberOfHours;
 					break;
 					}
+
 			}
-			System.out.println("For a Month Max Days = " + totalWorkDays + " No. of Hours Reached = " +nHours);
-			System.out.println(	"Employee If Worked Monthly Earn = " + ((numberOfHours) * WagePerHour) * NumberOfWorkingDays);
 			totalEmployeeWage= totalWorkHours * WagePerHour;
-			System.out.println("Total Employee Wage for Max Hours or Days reached is "+ totalEmployeeWage);
+			System.out.println("Total Employee Wage for company : "+Company+" is "+ totalEmployeeWage);
+		    return totalEmployeeWage;
+	}
+	
+	 
+	//Welcome Message
+		public static void  Welcome() {
+		System.out.println("Welcome to Employee Wage Computation program");
 		}
 
 }

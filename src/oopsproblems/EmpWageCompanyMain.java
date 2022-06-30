@@ -15,14 +15,11 @@ public class EmpWageCompanyMain {
 	 * Here, welcome and Method Functions were Called Directly
 	 * 
 	 */
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		EmpWageCompany EmpWageObj = new EmpWageCompany();
-		EmpWageObj.Welcome();
-		EmpWageObj.Variables();
-		EmpWageObj.Method();
+		EmpWageCompany empwage =new EmpWageCompany();
+		empwage.Welcome();
+		empwage.EmpWageCompany("Dmart",20, 20,100);
+		empwage.EmpWageCompany("Reliance",28, 20,100);
 
 	}
-
 }
